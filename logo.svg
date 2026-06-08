@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="400" height="280" viewBox="0 0 680 460">
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="280" viewBox="100 0 480 460">
   <title>Apex Cleaning Solutions Logo</title>
   <desc>APEX VANS logo with mountain chevron</desc>
 
@@ -33,7 +33,7 @@
   <line x1="424" y1="334" x2="532" y2="334" stroke="#0077b6" stroke-width="3"/>
 
   <!-- ── CLEANING SOLUTIONS ── -->
-  <text x="340" y="410"
+  <text x="340" y="390"
     text-anchor="middle"
     style="font-family:Arial,sans-serif;font-size:26px;font-weight:750;letter-spacing:7px;fill:#0077b6">CLEANING SOLUTIONS</text>
   
