@@ -1,7 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="400" height="280" viewBox="100 0 480 460">
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="280" viewBox="140 20 400 390">
   <title>Apex Cleaning Solutions Logo</title>
   <desc>APEX VANS logo with mountain chevron</desc>
-
   <defs>
     <linearGradient id="mGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#48cae4"/>
@@ -13,28 +12,20 @@
       <stop offset="100%" style="stop-color:#0d2d50"/>
     </linearGradient>
   </defs>
-
-  <!-- ── MOUNTAIN ICON ── -->
+  <!-- MOUNTAIN ICON -->
   <polygon points="235,155 290,155 340,80 340,30" fill="url(#mGrad)"/>
   <polygon points="445,155 390,155 340,80 340,30" fill="url(#mGrad)"/>
   <polygon points="340,85 388,155 292,155" fill="white"/>
   <polygon points="340,30 358,72 322,72" fill="#f26722"/>
-
-  <!-- ── APEX TEXT ── -->
-  <text x="340" y="300"
-    text-anchor="middle"
+  <!-- APEX TEXT -->
+  <text x="340" y="300" text-anchor="middle"
     style="font-family:'Arial Black',Arial,sans-serif;font-size:130px;font-weight:900;letter-spacing:4px;fill:url(#aGrad);stroke:#0d2d50;stroke-width:3.5px;paint-order:stroke fill;">APEX</text>
-
-  <!-- ── VANS with side rules ── -->
+  <!-- VANS with side rules -->
   <line x1="148" y1="334" x2="256" y2="334" stroke="#0077b6" stroke-width="3"/>
-  <text x="340" y="352"
-    text-anchor="middle"
+  <text x="340" y="352" text-anchor="middle"
     style="font-family:'Arial Black',Arial,sans-serif;font-size:40px;font-weight:900;letter-spacing:14px;fill:#0077b6;stroke:#0077b6;stroke-width:1px;paint-order:stroke fill;">VANS</text>
   <line x1="424" y1="334" x2="532" y2="334" stroke="#0077b6" stroke-width="3"/>
-
-  <!-- ── CLEANING SOLUTIONS ── -->
-  <text x="340" y="390"
-    text-anchor="middle"
-    style="font-family:Arial,sans-serif;font-size:26px;font-weight:750;letter-spacing:7px;fill:#0077b6">CLEANING SOLUTIONS</text>
-  
+  <!-- CLEANING SOLUTIONS -->
+  <text x="340" y="390" text-anchor="middle"
+    style="font-family:Arial,sans-serif;font-size:22px;font-weight:700;letter-spacing:7px;fill:#0077b6">CLEANING SOLUTIONS</text>
 </svg>
