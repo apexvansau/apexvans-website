@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apex Cleaning Solutions | Sydney</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #080c12;
+      --dark: #0d1420;
+      --card: #111c2e;
+      --blue: #0077b6;
+      --blue-light: #48cae4;
+      --blue-pale: #90e0ef;
+      --orange: #f26722;
+      --orange-light: #ff8c42;
+      --white: #f0f8ff;
+      --grey: #7a90a8;
+      --border: rgba(0,180,220,0.12);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 6%;
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.7rem;
+      letter-spacing: 2px;
+      color: var(--white);
+    }
+    .logo span { color: var(--blue-light); }
+    nav ul { list-style: none; display: flex; gap: 2.5rem; }
+    nav ul a {
+      text-decoration: none; color: var(--grey);
+      font-size: 0.85rem; font-weight: 600;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    nav ul a:hover { color: var(--blue-light); }
+    .nav-cta {
+      background: var(--orange); color: var(--black) !important;
+      padding: 0.5rem 1.2rem; border-radius: 3px;
+      font-weight: 700 !important;
+    }
+    .nav-cta:hover { background: var(--orange-light); color: var(--black) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 0 6%;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(135deg, rgba(0,119,182,0.15) 0%, transparent 50%),
+        repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 60px,
+          rgba(72,202,228,0.03) 60px,
+          rgba(72,202,228,0.03) 61px
+        );
+    }
+    .hero-glow {
+      position: absolute; top: -200px; left: -200px;
+      width: 700px; height: 700px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,119,182,0.2) 0%, rgba(72,202,228,0.08) 40%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 750px;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(0,119,182,0.15);
+      border: 1px solid rgba(72,202,228,0.4);
+      color: var(--blue-light);
+      font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 3px; text-transform: uppercase;
+      padding: 0.4rem 1rem; border-radius: 2px;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.6s ease both;
+    }
+    h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(4rem, 9vw, 8rem);
+      line-height: 0.95;
+      letter-spacing: 2px;
+      animation: fadeUp 0.6s 0.15s ease both;
+    }
+    h1 .accent {
+      background: linear-gradient(90deg, var(--blue), var(--blue-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      margin-top: 1.5rem;
+      font-size: 1.15rem; color: var(--grey);
+      line-height: 1.7; max-width: 500px;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+    .hero-actions {
+      margin-top: 2.5rem; display: flex; gap: 1rem; flex-wrap: wrap;
+      animation: fadeUp 0.6s 0.45s ease both;
+    }
+    .btn {
+      display: inline-block; text-decoration: none;
+      font-weight: 700; font-size: 0.9rem;
+      letter-spacing: 1px; text-transform: uppercase;
+      padding: 0.85rem 2rem; border-radius: 3px;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: var(--orange); color: var(--black);
+    }
+    .btn-primary:hover { background: var(--orange-light); transform: translateY(-2px); }
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,0.2); color: var(--white);
+    }
+    .btn-outline:hover { border-color: var(--orange); color: var(--orange); }
+
+    .hero-stats {
+      margin-top: 4rem; display: flex; gap: 3rem; flex-wrap: wrap;
+      animation: fadeUp 0.6s 0.6s ease both;
+    }
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.8rem; color: var(--blue-light); line-height: 1;
+    }
+    .stat-label { font-size: 0.8rem; color: var(--grey); letter-spacing: 1px; text-transform: uppercase; margin-top: 0.3rem; }
+
+    /* ── SECTION BASE ── */
+    section { padding: 6rem 6%; }
+    .section-tag {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 3px;
+      text-transform: uppercase; color: var(--blue-light);
+      margin-bottom: 0.8rem;
+    }
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      letter-spacing: 1px; line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .section-sub { color: var(--grey); font-size: 1rem; line-height: 1.7; max-width: 500px; }
+
+    /* ── SERVICES ── */
+    .services { background: var(--dark); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5px;
+      margin-top: 3.5rem;
+      border: 1.5px solid var(--border);
+    }
+    .service-card {
+      background: var(--card);
+      padding: 2.5rem;
+      position: relative; overflow: hidden;
+      transition: background 0.3s;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0;
+      width: 3px; height: 0;
+      background: linear-gradient(to bottom, var(--blue-light), var(--blue));
+      transition: height 0.4s ease;
+    }
+    .service-card:hover::before { height: 100%; }
+    .service-card:hover { background: #1c1f27; }
+    .service-icon {
+      font-size: 2.5rem; margin-bottom: 1.5rem;
+      display: block;
+    }
+    .service-card h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem; letter-spacing: 1px;
+      margin-bottom: 0.8rem;
+    }
+    .service-card p { color: var(--grey); font-size: 0.95rem; line-height: 1.7; }
+    .service-list {
+      margin-top: 1rem; list-style: none;
+    }
+    .service-list li {
+      color: var(--grey); font-size: 0.88rem;
+      padding: 0.3rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .service-list li::before { content: '→'; color: var(--blue-light); }
+
+    /* ── WHY US ── */
+    .why { background: var(--black); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: center;
+      margin-top: 3rem;
+    }
+    .why-items { display: flex; flex-direction: column; gap: 1.5rem; }
+    .why-item {
+      display: flex; gap: 1.2rem; align-items: flex-start;
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      transition: border-color 0.3s;
+    }
+    .why-item:hover { border-color: rgba(72,202,228,0.4); }
+    .why-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem; color: var(--blue-light);
+      line-height: 1; min-width: 2rem;
+    }
+    .why-item h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .why-item p { color: var(--grey); font-size: 0.9rem; line-height: 1.6; }
+    .why-visual {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 3rem;
+      text-align: center;
+    }
+    .big-icon { font-size: 8rem; display: block; margin-bottom: 1rem; }
+    .why-visual p { color: var(--grey); font-size: 0.95rem; line-height: 1.7; }
+
+    /* ── CONTACT ── */
+    .contact { background: var(--dark); }
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem; margin-top: 3rem;
+    }
+    .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+    .contact-item {
+      display: flex; gap: 1rem; align-items: flex-start;
+      padding: 1.5rem;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+    }
+    .contact-icon { font-size: 1.5rem; }
+    .contact-item h4 { font-weight: 700; margin-bottom: 0.3rem; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; color: var(--grey); }
+    .contact-item a, .contact-item p {
+      color: var(--white); text-decoration: none;
+      font-size: 1rem; font-weight: 600;
+      transition: color 0.2s;
+    }
+    .contact-item a:hover { color: var(--blue-light); }
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form select {
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--white);
+      padding: 0.9rem 1.2rem;
+      border-radius: 3px;
+      font-family: 'Barlow', sans-serif;
+      font-size: 0.95rem;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus,
+    .contact-form select:focus { border-color: var(--blue-light); }
+    .contact-form textarea { min-height: 130px; resize: vertical; }
+    .contact-form select option { background: var(--card); }
+    .contact-form .btn { border: none; cursor: pointer; width: 100%; text-align: center; }
+
+    /* ── BEFORE / AFTER ── */
+    .results { background: var(--black); }
+    .results-intro { max-width: 600px; margin-bottom: 3.5rem; }
+
+    .sliders-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .slider-wrap { display: flex; flex-direction: column; gap: 1rem; }
+    .slider-label {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem; letter-spacing: 1px;
+      color: var(--white);
+    }
+    .slider-label span { color: var(--blue-light); }
+
+    .comparison {
+      position: relative;
+      width: 100%; aspect-ratio: 4/3;
+      overflow: hidden;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      cursor: col-resize;
+      user-select: none;
+    }
+
+    /* BEFORE layer — full width, behind */
+    .comp-before {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .comp-before .placeholder {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, #1a2a1a 0%, #0d1a0d 100%);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 0.8rem;
+    }
+    .comp-before .placeholder .ph-icon { font-size: 3rem; opacity: 0.5; }
+    .comp-before .placeholder .ph-text {
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: rgba(255,255,255,0.3);
+    }
+    .comp-before .placeholder .ph-hint {
+      font-size: 0.72rem; color: rgba(255,255,255,0.2);
+      text-align: center; padding: 0 2rem;
+    }
+
+    /* AFTER layer — clipped by slider position */
+    .comp-after {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      clip-path: inset(0 50% 0 0);
+      transition: clip-path 0s;
+    }
+    .comp-after .placeholder {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, #0d1e2e 0%, #071525 100%);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 0.8rem;
+    }
+    .comp-after .placeholder .ph-icon { font-size: 3rem; opacity: 0.6; }
+    .comp-after .placeholder .ph-text {
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: rgba(72,202,228,0.5);
+    }
+    .comp-after .placeholder .ph-hint {
+      font-size: 0.72rem; color: rgba(255,255,255,0.2);
+      text-align: center; padding: 0 2rem;
+    }
+
+    /* Labels on photos */
+    .comp-tag {
+      position: absolute; top: 1rem;
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      padding: 0.3rem 0.7rem; border-radius: 2px;
+      z-index: 4; pointer-events: none;
+    }
+    .comp-tag.before {
+      left: 1rem;
+      background: rgba(0,0,0,0.6); color: rgba(255,255,255,0.6);
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+    .comp-tag.after {
+      right: 1rem;
+      background: rgba(0,119,182,0.7); color: var(--white);
+      border: 1px solid rgba(72,202,228,0.4);
+    }
+
+    /* Divider line */
+    .comp-divider {
+      position: absolute; top: 0; bottom: 0;
+      left: 50%; transform: translateX(-50%);
+      width: 3px;
+      background: linear-gradient(to bottom, var(--blue-light), var(--blue));
+      z-index: 5; pointer-events: none;
+      box-shadow: 0 0 12px rgba(72,202,228,0.6);
+    }
+
+    /* Handle circle */
+    .comp-handle {
+      position: absolute; top: 50%;
+      left: 50%; transform: translate(-50%, -50%);
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--blue);
+      border: 3px solid var(--blue-light);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 6; pointer-events: none;
+      box-shadow: 0 0 20px rgba(72,202,228,0.5);
+    }
+    .comp-handle::before {
+      content: '◀ ▶';
+      font-size: 0.55rem; color: var(--white);
+      letter-spacing: 1px;
+    }
+
+    /* Hint text at bottom */
+    .slider-hint {
+      font-size: 0.78rem; color: var(--grey);
+      text-align: center; letter-spacing: 0.5px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black);
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 6%;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem; letter-spacing: 2px;
+    }
+    .footer-logo span { color: var(--blue-light); }
+    footer p { color: var(--grey); font-size: 0.85rem; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav ul { display: none; }
+      .why-grid, .contact-inner { grid-template-columns: 1fr; }
+      .hero-stats { gap: 1.5rem; }
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">APEX<span>.</span></div>
+  <ul>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#results">Results</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="tel:0415831088" class="nav-cta">Call Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Sydney's Cleaning Specialists</div>
+    <h1>WE MAKE<br><span class="accent">SURFACES</span><br>SHINE.</h1>
+    <p class="hero-sub">Professional high pressure cleaning and protective coating services for driveways, walls, and industrial facilities across Sydney.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-primary">Get a Free Quote</a>
+      <a href="tel:0415831088" class="btn btn-outline">📞 0415 831 088</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Satisfaction</div>
+      </div>
+      <div>
+        <div class="stat-num">SYD</div>
+        <div class="stat-label">Wide Coverage</div>
+      </div>
+      <div>
+        <div class="stat-num">FREE</div>
+        <div class="stat-label">Quotes</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-tag">What We Do</div>
+  <div class="section-title">OUR SERVICES</div>
+  <p class="section-sub">Industrial-grade equipment and premium products for outstanding results every time.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="service-icon">💧</span>
+      <h3>High Pressure Cleaning</h3>
+      <p>Blast away years of grime, mould, and staining from any surface with our professional-grade pressure washing equipment.</p>
+      <ul class="service-list">
+        <li>Driveways & Pathways</li>
+        <li>Brick & Rendered Walls</li>
+        <li>Industrial Facilities</li>
+        <li>Warehouses & Factories</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🛡️</span>
+      <h3>Protective Coating & Sealing</h3>
+      <p>Extend the life of your surfaces with premium sealants and coatings that repel water, oil, and UV damage.</p>
+      <ul class="service-list">
+        <li>Driveway Sealing</li>
+        <li>Concrete Coating</li>
+        <li>Anti-Slip Treatments</li>
+        <li>Long-lasting Protection</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🏭</span>
+      <h3>Industrial Cleaning</h3>
+      <p>Heavy-duty cleaning solutions for commercial and industrial properties. We handle the big jobs others won't.</p>
+      <ul class="service-list">
+        <li>Warehouse Floors</li>
+        <li>Loading Docks</li>
+        <li>External Building Facades</li>
+        <li>Car Parks</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section class="results" id="results">
+  <div class="results-intro">
+    <div class="section-tag">Our Work</div>
+    <div class="section-title">BEFORE &<br>AFTER</div>
+    <p class="section-sub">Drag the slider left and right to see the difference our work makes. Real results, every time.</p>
+  </div>
+
+  <div class="sliders-grid">
+
+    <!-- Slider 1: Driveway -->
+    <div class="slider-wrap">
+      <div class="slider-label">Driveway <span>Pressure Clean</span></div>
+      <div class="comparison" id="slider1">
+        <div class="comp-before">
+          <div class="placeholder">
+            <div class="ph-icon">🟫</div>
+            <div class="ph-text">Before</div>
+            <div class="ph-hint">Replace with your before photo<br>driveway-before.jpg</div>
+          </div>
+        </div>
+        <div class="comp-after">
+          <div class="placeholder">
+            <div class="ph-icon">✨</div>
+            <div class="ph-text">After</div>
+            <div class="ph-hint">Replace with your after photo<br>driveway-after.jpg</div>
+          </div>
+        </div>
+        <div class="comp-tag before">Before</div>
+        <div class="comp-tag after">After</div>
+        <div class="comp-divider"></div>
+        <div class="comp-handle"></div>
+      </div>
+      <div class="slider-hint">⟵ Drag to compare ⟶</div>
+    </div>
+
+    <!-- Slider 2: Wall -->
+    <div class="slider-wrap">
+      <div class="slider-label">Building Wall <span>Clean</span></div>
+      <div class="comparison" id="slider2">
+        <div class="comp-before">
+          <div class="placeholder">
+            <div class="ph-icon">🧱</div>
+            <div class="ph-text">Before</div>
+            <div class="ph-hint">Replace with your before photo<br>wall-before.jpg</div>
+          </div>
+        </div>
+        <div class="comp-after">
+          <div class="placeholder">
+            <div class="ph-icon">✨</div>
+            <div class="ph-text">After</div>
+            <div class="ph-hint">Replace with your after photo<br>wall-after.jpg</div>
+          </div>
+        </div>
+        <div class="comp-tag before">Before</div>
+        <div class="comp-tag after">After</div>
+        <div class="comp-divider"></div>
+        <div class="comp-handle"></div>
+      </div>
+      <div class="slider-hint">⟵ Drag to compare ⟶</div>
+    </div>
+
+    <!-- Slider 3: Driveway Sealing -->
+    <div class="slider-wrap">
+      <div class="slider-label">Driveway <span>Sealing & Coating</span></div>
+      <div class="comparison" id="slider3">
+        <div class="comp-before">
+          <div class="placeholder">
+            <div class="ph-icon">🪨</div>
+            <div class="ph-text">Before</div>
+            <div class="ph-hint">Replace with your before photo<br>sealing-before.jpg</div>
+          </div>
+        </div>
+        <div class="comp-after">
+          <div class="placeholder">
+            <div class="ph-icon">✨</div>
+            <div class="ph-text">After</div>
+            <div class="ph-hint">Replace with your after photo<br>sealing-after.jpg</div>
+          </div>
+        </div>
+        <div class="comp-tag before">Before</div>
+        <div class="comp-tag after">After</div>
+        <div class="comp-divider"></div>
+        <div class="comp-handle"></div>
+      </div>
+      <div class="slider-hint">⟵ Drag to compare ⟶</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why" id="why">
+  <div class="section-tag">Why Choose Us</div>
+  <div class="section-title">THE APEX<br>DIFFERENCE</div>
+  <div class="why-grid">
+    <div class="why-items">
+      <div class="why-item">
+        <div class="why-num">01</div>
+        <div>
+          <h4>Professional Equipment</h4>
+          <p>We use industrial-grade pressure washers and premium coatings — not consumer hardware.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">02</div>
+        <div>
+          <h4>Sydney-Based & Local</h4>
+          <p>We're local — fast response times and no travel fees for Sydney metro areas.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">03</div>
+        <div>
+          <h4>Free Quotes, No Obligation</h4>
+          <p>Contact us for a transparent, itemised quote with no hidden costs or surprises.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">04</div>
+        <div>
+          <h4>Fully Insured</h4>
+          <p>All work is fully insured. Your property is in safe hands from start to finish.</p>
+        </div>
+      </div>
+    </div>
+    <div class="why-visual">
+      <span class="big-icon">⚡</span>
+      <h3 style="font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:1px;margin-bottom:1rem;">Ready to Transform Your Property?</h3>
+      <p>From grimy driveways to industrial warehouses — we restore surfaces to their best condition and keep them protected.</p>
+      <a href="#contact" class="btn btn-primary" style="margin-top:1.5rem;display:inline-block;">Get a Free Quote</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="section-tag">Get In Touch</div>
+  <div class="section-title">FREE QUOTE &<br>ENQUIRIES</div>
+  <div class="contact-inner">
+    <div class="contact-info">
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div>
+          <h4>Phone</h4>
+          <a href="tel:0415831088">0415 831 088</a><br>
+          <a href="tel:0466366800">0466 366 800</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">✉️</div>
+        <div>
+          <h4>Email</h4>
+          <a href="mailto:apexvansau@gmail.com">apexvansau@gmail.com</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div>
+          <h4>Location</h4>
+          <p>Sydney, NSW & Surrounds</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">🕐</div>
+        <div>
+          <h4>Hours</h4>
+          <p>Mon–Sat: 7am – 6pm</p>
+        </div>
+      </div>
+    </div>
+    <form class="contact-form" onsubmit="handleSubmit(event)">
+      <input type="text" placeholder="Your Name" required />
+      <input type="tel" placeholder="Your Phone Number" required />
+      <input type="email" placeholder="Your Email" />
+      <select>
+        <option value="" disabled selected>Select a Service</option>
+        <option>High Pressure Cleaning — Driveway</option>
+        <option>High Pressure Cleaning — Walls</option>
+        <option>High Pressure Cleaning — Industrial</option>
+        <option>Protective Coating & Sealing</option>
+        <option>Multiple Services</option>
+      </select>
+      <textarea placeholder="Tell us about your job — size, location, any details..."></textarea>
+      <button type="submit" class="btn btn-primary">Send Enquiry →</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">APEX<span>.</span></div>
+  <p>© 2025 Apex Cleaning Solutions · Sydney, NSW</p>
+  <p style="color:var(--grey);font-size:0.8rem;">apexvans.com.au</p>
+</footer>
+
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button');
+    btn.textContent = '✅ Enquiry Sent!';
+    btn.style.background = '#22c55e';
+    setTimeout(() => {
+      btn.textContent = 'Send Enquiry →';
+      btn.style.background = '';
+      e.target.reset();
+    }, 3000);
+  }
+
+  // ── Before/After Sliders ──
+  document.querySelectorAll('.comparison').forEach(slider => {
+    const after = slider.querySelector('.comp-after');
+    const divider = slider.querySelector('.comp-divider');
+    const handle = slider.querySelector('.comp-handle');
+    let dragging = false;
+
+    function setPosition(x) {
+      const rect = slider.getBoundingClientRect();
+      let pct = ((x - rect.left) / rect.width) * 100;
+      pct = Math.max(2, Math.min(98, pct));
+      const right = 100 - pct;
+      after.style.clipPath = `inset(0 ${right}% 0 0)`;
+      divider.style.left = pct + '%';
+      handle.style.left = pct + '%';
+    }
+
+    // Mouse
+    slider.addEventListener('mousedown', e => { dragging = true; setPosition(e.clientX); });
+    window.addEventListener('mousemove', e => { if (dragging) setPosition(e.clientX); });
+    window.addEventListener('mouseup', () => dragging = false);
+
+    // Touch
+    slider.addEventListener('touchstart', e => { dragging = true; setPosition(e.touches[0].clientX); }, { passive: true });
+    window.addEventListener('touchmove', e => { if (dragging) setPosition(e.touches[0].clientX); }, { passive: true });
+    window.addEventListener('touchend', () => dragging = false);
+  });
+</script>
+
+</body>
+</html>
