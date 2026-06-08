@@ -28,13 +28,7 @@
     }
 
     html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Barlow', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      overflow-x: hidden;
-    }
+    body { font-family: 'Barlow', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
 
     /* ── NAV ── */
     nav {
@@ -46,36 +40,20 @@
       border-bottom: 2px solid var(--blue-pale);
       box-shadow: 0 2px 16px rgba(0,119,182,0.08);
     }
-    .logo {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.8rem;
-      letter-spacing: 2px;
-      color: var(--blue-dark);
-    }
+    .logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 2px; color: var(--blue-dark); }
     .logo span { color: var(--orange); }
     nav ul { list-style: none; display: flex; gap: 2.5rem; }
-    nav ul a {
-      text-decoration: none; color: var(--grey);
-      font-size: 0.85rem; font-weight: 700;
-      letter-spacing: 1.5px; text-transform: uppercase;
-      transition: color 0.2s;
-    }
+    nav ul a { text-decoration: none; color: var(--grey); font-size: 0.85rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; transition: color 0.2s; }
     nav ul a:hover { color: var(--blue); }
-    .nav-cta {
-      background: var(--orange); color: white !important;
-      padding: 0.55rem 1.3rem; border-radius: 4px;
-      font-weight: 700 !important;
-      box-shadow: 0 3px 12px rgba(242,103,34,0.3);
-    }
+    .nav-cta { background: var(--orange); color: white !important; padding: 0.55rem 1.3rem; border-radius: 4px; font-weight: 700 !important; box-shadow: 0 3px 12px rgba(242,103,34,0.3); }
     .nav-cta:hover { background: var(--orange-light); transform: translateY(-1px); }
 
     /* ── HERO ── */
     .hero {
       min-height: 100vh;
       display: flex; align-items: center;
-      padding: 0 6%;
-      position: relative;
-      overflow: hidden;
+      padding: 6rem 6% 3rem;
+      position: relative; overflow: hidden;
       background: linear-gradient(135deg, #e8f4fa 0%, #ffffff 60%, #fff8f4 100%);
     }
     .hero-bg {
@@ -86,346 +64,115 @@
     }
     .hero-shape {
       position: absolute; left: -150px; bottom: -150px;
-      width: 500px; height: 500px;
-      border-radius: 50%;
+      width: 500px; height: 500px; border-radius: 50%;
       background: linear-gradient(135deg, rgba(242,103,34,0.06) 0%, rgba(72,202,228,0.08) 100%);
       z-index: 0;
     }
     .hero-inner {
       position: relative; z-index: 2;
-      width: 100%;
-      display: flex; align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
+      width: 100%; display: flex; align-items: center;
+      justify-content: space-between; gap: 2rem;
     }
-    .hero-content {
-      position: relative; z-index: 2;
-      max-width: 560px;
-      flex-shrink: 0;
+    .hero-content { position: relative; z-index: 2; max-width: 540px; flex-shrink: 0; }
+    .hero-tag {
+      display: inline-block; background: var(--blue); color: white;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+      padding: 0.4rem 1rem; border-radius: 3px; margin-bottom: 1.5rem;
+      animation: fadeUp 0.6s ease both; box-shadow: 0 3px 12px rgba(0,119,182,0.3);
     }
+    h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(4rem, 9vw, 7.5rem); line-height: 0.95; letter-spacing: 2px; color: var(--black); animation: fadeUp 0.6s 0.15s ease both; }
+    h1 .accent { background: linear-gradient(90deg, var(--blue), var(--blue-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    h1 .accent-orange { color: var(--orange); -webkit-text-fill-color: var(--orange); }
+    .hero-sub { margin-top: 1.5rem; font-size: 1.1rem; color: var(--grey); line-height: 1.75; max-width: 480px; animation: fadeUp 0.6s 0.3s ease both; }
+    .hero-actions { margin-top: 2.5rem; display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.6s 0.45s ease both; }
+    .btn { display: inline-block; text-decoration: none; font-weight: 700; font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase; padding: 0.9rem 2rem; border-radius: 4px; transition: all 0.2s; }
+    .btn-primary { background: var(--orange); color: white; box-shadow: 0 4px 16px rgba(242,103,34,0.35); }
+    .btn-primary:hover { background: var(--orange-light); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(242,103,34,0.4); }
+    .btn-outline { border: 2px solid var(--blue); color: var(--blue); background: white; }
+    .btn-outline:hover { background: var(--blue); color: white; transform: translateY(-2px); }
+    .hero-stats { margin-top: 3.5rem; display: flex; gap: 2.5rem; flex-wrap: wrap; animation: fadeUp 0.6s 0.6s ease both; padding-top: 2rem; border-top: 2px solid var(--blue-pale); }
+    .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 2.8rem; color: var(--blue); line-height: 1; }
+    .stat-label { font-size: 0.75rem; color: var(--grey); letter-spacing: 1px; text-transform: uppercase; margin-top: 0.2rem; font-weight: 600; }
 
-    /* Floating water drop decoration behind carousel */
-    .carousel-drop {
-      position: absolute; right: -30px; top: 50%;
-      transform: translateY(-50%);
-      width: 1120px; height: 1120px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--blue-pale) 0%, rgba(72,202,228,0.25) 100%);
-      z-index: 1;
-      pointer-events: none;
-    }
     /* ── HERO CAROUSEL ── */
     .hero-carousel-wrap {
       position: relative; z-index: 2;
       flex: 0 0 550px;
-      display: flex; flex-direction: column; align-items: center;
-      gap: 1rem;
+      display: flex; flex-direction: column; align-items: center; gap: 1rem;
+    }
+    /* Water drop circle BEHIND carousel */
+    .carousel-drop {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 1120px; height: 1120px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue-pale) 0%, rgba(72,202,228,0.25) 100%);
+      z-index: 1; pointer-events: none;
     }
     .hero-carousel {
-      width: 550px; height: 440px;
-      border-radius: 16px;
-      overflow: hidden;
-      position: relative;
-      z-index: 3;
+      width: 550px; height: 440px; border-radius: 16px;
+      overflow: hidden; position: relative; z-index: 3;
       box-shadow: 0 12px 50px rgba(0,119,182,0.22), 0 0 0 5px var(--blue-pale);
     }
     .carousel-slide {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%;
-      opacity: 0;
-      transition: opacity 0.8s ease;
-      border-radius: 16px;
-      overflow: hidden;
-      display: flex; align-items: center; justify-content: center;
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      opacity: 0; transition: opacity 0.7s ease;
+      border-radius: 16px; overflow: hidden;
     }
     .carousel-slide.active { opacity: 1; }
-
-    /* Placeholder slides — replace with <img> tags later */
-    .slide-ph {
-      width: 100%; height: 100%;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      gap: 1rem;
-    }
-    .slide-ph-1 { background: linear-gradient(135deg, #b8d4f0 0%, #caf0f8 100%); }
-    .slide-ph-2 { background: linear-gradient(135deg, #c8e6c9 0%, #a5d6a7 100%); }
-    .slide-ph-3 { background: linear-gradient(135deg, #ffe0b2 0%, #ffcc80 100%); }
-    .slide-ph-4 { background: linear-gradient(135deg, #e1bee7 0%, #ce93d8 100%); }
-    .slide-ph .ph-big { font-size: 5rem; }
-    .slide-ph .ph-label {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.4rem; letter-spacing: 2px;
-      color: rgba(0,0,0,0.35);
-    }
-    .slide-ph .ph-sub {
-      font-size: 0.75rem; color: rgba(0,0,0,0.3);
-      font-weight: 600; letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    /* Badge overlay on carousel */
+    .carousel-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .carousel-badge {
       position: absolute; bottom: 1.2rem; left: 1.2rem;
-      background: var(--orange);
-      color: white;
-      font-size: 0.72rem; font-weight: 700;
-      letter-spacing: 1.5px; text-transform: uppercase;
-      padding: 0.35rem 0.8rem; border-radius: 3px;
-      z-index: 5;
-      box-shadow: 0 3px 10px rgba(242,103,34,0.4);
-      pointer-events: none;
-    }
-
-    /* Dots */
-    .carousel-dots {
-      display: flex; gap: 0.5rem; align-items: center;
-    }
-    .c-dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: var(--blue-pale);
-      border: 2px solid var(--blue-light);
-      cursor: pointer; transition: all 0.3s;
-    }
-    .c-dot.active {
-      background: var(--blue);
-      width: 24px; border-radius: 4px;
-    }
-
-    /* Floating water drop decoration behind carousel */
-    .carousel-drop {
-      position: absolute; right: -60px; top: 50%;
-      transform: translateY(-50%);
-      width: 520px; height: 520px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--blue-pale) 0%, rgba(72,202,228,0.25) 100%);
-      z-index: 1;
-      pointer-events: none;
-    }
-    .hero-tag {
-      display: inline-block;
-      background: var(--blue);
-      color: white;
-      font-size: 0.72rem; font-weight: 700;
-      letter-spacing: 3px; text-transform: uppercase;
-      padding: 0.4rem 1rem; border-radius: 3px;
-      margin-bottom: 1.5rem;
-      animation: fadeUp 0.6s ease both;
-      box-shadow: 0 3px 12px rgba(0,119,182,0.3);
-    }
-    h1 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(4rem, 9vw, 7.5rem);
-      line-height: 0.95;
-      letter-spacing: 2px;
-      color: var(--black);
-      animation: fadeUp 0.6s 0.15s ease both;
-    }
-    h1 .accent {
-      background: linear-gradient(90deg, var(--blue), var(--blue-light));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    h1 .accent-orange { color: var(--orange); -webkit-text-fill-color: var(--orange); }
-    .hero-sub {
-      margin-top: 1.5rem;
-      font-size: 1.1rem; color: var(--grey);
-      line-height: 1.75; max-width: 480px;
-      animation: fadeUp 0.6s 0.3s ease both;
-    }
-    .hero-actions {
-      margin-top: 2.5rem; display: flex; gap: 1rem; flex-wrap: wrap;
-      animation: fadeUp 0.6s 0.45s ease both;
-    }
-    .btn {
-      display: inline-block; text-decoration: none;
-      font-weight: 700; font-size: 0.9rem;
-      letter-spacing: 1px; text-transform: uppercase;
-      padding: 0.9rem 2rem; border-radius: 4px;
-      transition: all 0.2s;
-    }
-    .btn-primary {
       background: var(--orange); color: white;
-      box-shadow: 0 4px 16px rgba(242,103,34,0.35);
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 0.35rem 0.8rem; border-radius: 3px; z-index: 5;
+      box-shadow: 0 3px 10px rgba(242,103,34,0.4); pointer-events: none;
     }
-    .btn-primary:hover { background: var(--orange-light); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(242,103,34,0.4); }
-    .btn-outline {
-      border: 2px solid var(--blue); color: var(--blue);
-      background: white;
-    }
-    .btn-outline:hover { background: var(--blue); color: white; transform: translateY(-2px); }
-
-    .hero-stats {
-      margin-top: 3.5rem; display: flex; gap: 2.5rem; flex-wrap: wrap;
-      animation: fadeUp 0.6s 0.6s ease both;
-      padding-top: 2rem;
-      border-top: 2px solid var(--blue-pale);
-    }
-    .stat-num {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2.8rem; color: var(--blue); line-height: 1;
-    }
-    .stat-label { font-size: 0.75rem; color: var(--grey); letter-spacing: 1px; text-transform: uppercase; margin-top: 0.2rem; font-weight: 600; }
+    .carousel-dots { position: relative; z-index: 3; display: flex; gap: 0.5rem; align-items: center; }
+    .c-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--blue-pale); border: 2px solid var(--blue-light); cursor: pointer; transition: all 0.3s; }
+    .c-dot.active { background: var(--blue); width: 24px; border-radius: 4px; }
 
     /* ── SECTION BASE ── */
     section { padding: 6rem 6%; }
-    .section-tag {
-      display: inline-block;
-      font-size: 0.7rem; font-weight: 700; letter-spacing: 3px;
-      text-transform: uppercase; color: var(--blue);
-      margin-bottom: 0.8rem;
-      background: var(--blue-pale);
-      padding: 0.3rem 0.8rem; border-radius: 2px;
-    }
-    .section-title {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      letter-spacing: 1px; line-height: 1;
-      margin-bottom: 1rem;
-      color: var(--black);
-    }
+    .section-tag { display: inline-block; font-size: 0.7rem; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--blue); margin-bottom: 0.8rem; background: var(--blue-pale); padding: 0.3rem 0.8rem; border-radius: 2px; }
+    .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: 1px; line-height: 1; margin-bottom: 1rem; color: var(--black); }
     .section-sub { color: var(--grey); font-size: 1rem; line-height: 1.7; max-width: 500px; }
 
     /* ── SERVICES ── */
     .services { background: var(--white); }
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 3.5rem;
-    }
-    .service-card {
-      background: var(--bg);
-      border: 2px solid var(--blue-pale);
-      padding: 2.5rem;
-      border-radius: 8px;
-      position: relative; overflow: hidden;
-      transition: all 0.3s;
-      box-shadow: var(--shadow);
-    }
-    .service-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--blue), var(--blue-light));
-    }
-    .service-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--blue-light);
-    }
-    .service-icon {
-      font-size: 2.8rem; margin-bottom: 1.5rem;
-      display: block;
-    }
-    .service-card h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.7rem; letter-spacing: 1px;
-      margin-bottom: 0.8rem;
-      color: var(--blue-dark);
-    }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3.5rem; }
+    .service-card { background: var(--bg); border: 2px solid var(--blue-pale); padding: 2.5rem; border-radius: 8px; position: relative; overflow: hidden; transition: all 0.3s; box-shadow: var(--shadow); }
+    .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--blue), var(--blue-light)); }
+    .service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--blue-light); }
+    .service-icon { font-size: 2.8rem; margin-bottom: 1.5rem; display: block; }
+    .service-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.7rem; letter-spacing: 1px; margin-bottom: 0.8rem; color: var(--blue-dark); }
     .service-card p { color: var(--grey); font-size: 0.95rem; line-height: 1.7; }
     .service-list { margin-top: 1rem; list-style: none; }
-    .service-list li {
-      color: var(--text); font-size: 0.88rem; font-weight: 500;
-      padding: 0.4rem 0;
-      border-bottom: 1px solid var(--blue-pale);
-      display: flex; align-items: center; gap: 0.5rem;
-    }
+    .service-list li { color: var(--text); font-size: 0.88rem; font-weight: 500; padding: 0.4rem 0; border-bottom: 1px solid var(--blue-pale); display: flex; align-items: center; gap: 0.5rem; }
     .service-list li::before { content: '→'; color: var(--orange); font-weight: 700; }
 
     /* ── BEFORE / AFTER ── */
     .results { background: var(--bg); }
     .results-intro { max-width: 600px; margin-bottom: 3.5rem; }
-    .sliders-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
+    .sliders-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
     .slider-wrap { display: flex; flex-direction: column; gap: 0.8rem; }
-    .slider-label {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.3rem; letter-spacing: 1px;
-      color: var(--black);
-    }
+    .slider-label { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 1px; color: var(--black); }
     .slider-label span { color: var(--blue); }
-    .comparison {
-      position: relative;
-      width: 100%; aspect-ratio: 4/3;
-      overflow: hidden;
-      border-radius: 8px;
-      border: 2px solid var(--blue-pale);
-      cursor: col-resize;
-      user-select: none;
-      box-shadow: var(--shadow);
-    }
-    .comp-before {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .comp-before .placeholder {
-      width: 100%; height: 100%;
-      background: linear-gradient(135deg, #d4e8c2 0%, #b8d4a0 100%);
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center; gap: 0.8rem;
-    }
+    .comparison { position: relative; width: 100%; aspect-ratio: 4/3; overflow: hidden; border-radius: 8px; border: 2px solid var(--blue-pale); cursor: col-resize; user-select: none; box-shadow: var(--shadow); }
+    .comp-before { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .comp-before .placeholder { width: 100%; height: 100%; background: linear-gradient(135deg, #d4e8c2 0%, #b8d4a0 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.8rem; }
     .comp-before .placeholder .ph-icon { font-size: 3.5rem; opacity: 0.6; }
-    .comp-before .placeholder .ph-text {
-      font-size: 0.8rem; font-weight: 700; letter-spacing: 2px;
-      text-transform: uppercase; color: rgba(0,0,0,0.4);
-    }
-    .comp-before .placeholder .ph-hint {
-      font-size: 0.7rem; color: rgba(0,0,0,0.3);
-      text-align: center; padding: 0 2rem; line-height: 1.5;
-    }
-    .comp-after {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%;
-      clip-path: inset(0 50% 0 0);
-    }
-    .comp-after .placeholder {
-      width: 100%; height: 100%;
-      background: linear-gradient(135deg, #caf0f8 0%, #90e0ef 100%);
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center; gap: 0.8rem;
-    }
+    .comp-before .placeholder .ph-text { font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(0,0,0,0.4); }
+    .comp-before .placeholder .ph-hint { font-size: 0.7rem; color: rgba(0,0,0,0.3); text-align: center; padding: 0 2rem; line-height: 1.5; }
+    .comp-after { position: absolute; inset: 0; width: 100%; height: 100%; clip-path: inset(0 50% 0 0); }
+    .comp-after .placeholder { width: 100%; height: 100%; background: linear-gradient(135deg, #caf0f8 0%, #90e0ef 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.8rem; }
     .comp-after .placeholder .ph-icon { font-size: 3.5rem; }
-    .comp-after .placeholder .ph-text {
-      font-size: 0.8rem; font-weight: 700; letter-spacing: 2px;
-      text-transform: uppercase; color: var(--blue-dark);
-    }
-    .comp-after .placeholder .ph-hint {
-      font-size: 0.7rem; color: var(--blue);
-      text-align: center; padding: 0 2rem; line-height: 1.5;
-    }
-    .comp-tag {
-      position: absolute; top: 1rem;
-      font-size: 0.68rem; font-weight: 700;
-      letter-spacing: 2px; text-transform: uppercase;
-      padding: 0.3rem 0.7rem; border-radius: 3px;
-      z-index: 4; pointer-events: none;
-    }
+    .comp-after .placeholder .ph-text { font-size: 0.8rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--blue-dark); }
+    .comp-after .placeholder .ph-hint { font-size: 0.7rem; color: var(--blue); text-align: center; padding: 0 2rem; line-height: 1.5; }
+    .comp-tag { position: absolute; top: 1rem; font-size: 0.68rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 0.3rem 0.7rem; border-radius: 3px; z-index: 4; pointer-events: none; }
     .comp-tag.before { left: 1rem; background: rgba(0,0,0,0.5); color: white; }
     .comp-tag.after { right: 1rem; background: var(--blue); color: white; }
-    .comp-divider {
-      position: absolute; top: 0; bottom: 0;
-      left: 50%; transform: translateX(-50%);
-      width: 3px;
-      background: white;
-      z-index: 5; pointer-events: none;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    }
-    .comp-handle {
-      position: absolute; top: 50%;
-      left: 50%; transform: translate(-50%, -50%);
-      width: 46px; height: 46px; border-radius: 50%;
-      background: white;
-      border: 3px solid var(--blue);
-      display: flex; align-items: center; justify-content: center;
-      z-index: 6; pointer-events: none;
-      box-shadow: 0 3px 16px rgba(0,119,182,0.35);
-    }
+    .comp-divider { position: absolute; top: 0; bottom: 0; left: 50%; transform: translateX(-50%); width: 3px; background: white; z-index: 5; pointer-events: none; box-shadow: 0 0 10px rgba(0,0,0,0.3); }
+    .comp-handle { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 46px; height: 46px; border-radius: 50%; background: white; border: 3px solid var(--blue); display: flex; align-items: center; justify-content: center; z-index: 6; pointer-events: none; box-shadow: 0 3px 16px rgba(0,119,182,0.35); }
     .comp-handle::before { content: '◀ ▶'; font-size: 0.55rem; color: var(--blue); letter-spacing: 1px; font-weight: 700; }
     .slider-hint { font-size: 0.78rem; color: var(--grey); text-align: center; letter-spacing: 0.5px; font-weight: 600; }
 
@@ -434,97 +181,42 @@
     .why .section-tag { background: rgba(255,255,255,0.15); color: var(--blue-pale); }
     .why .section-title { color: white; }
     .why .section-sub { color: rgba(255,255,255,0.7); }
-    .why-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem; align-items: center;
-      margin-top: 3rem;
-    }
+    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 3rem; }
     .why-items { display: flex; flex-direction: column; gap: 1.2rem; }
-    .why-item {
-      display: flex; gap: 1.2rem; align-items: flex-start;
-      padding: 1.5rem;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 6px;
-      transition: all 0.3s;
-    }
+    .why-item { display: flex; gap: 1.2rem; align-items: flex-start; padding: 1.5rem; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 6px; transition: all 0.3s; }
     .why-item:hover { background: rgba(255,255,255,0.12); border-color: var(--blue-light); transform: translateX(4px); }
-    .why-num {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2rem; color: var(--blue-light);
-      line-height: 1; min-width: 2rem;
-    }
+    .why-num { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: var(--blue-light); line-height: 1; min-width: 2rem; }
     .why-item h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; color: white; }
     .why-item p { color: rgba(255,255,255,0.65); font-size: 0.9rem; line-height: 1.6; }
-    .why-visual {
-      background: rgba(255,255,255,0.08);
-      border: 2px solid rgba(255,255,255,0.15);
-      border-radius: 12px;
-      padding: 3rem;
-      text-align: center;
-    }
+    .why-visual { background: rgba(255,255,255,0.08); border: 2px solid rgba(255,255,255,0.15); border-radius: 12px; padding: 3rem; text-align: center; }
     .big-icon { font-size: 7rem; display: block; margin-bottom: 1rem; }
     .why-visual h3 { color: white; }
     .why-visual p { color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.7; }
 
     /* ── CONTACT ── */
     .contact { background: var(--white); }
-    .contact-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem; margin-top: 3rem;
-    }
+    .contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; }
     .contact-info { display: flex; flex-direction: column; gap: 1rem; }
-    .contact-item {
-      display: flex; gap: 1rem; align-items: flex-start;
-      padding: 1.3rem 1.5rem;
-      background: var(--bg);
-      border: 2px solid var(--blue-pale);
-      border-radius: 6px;
-      transition: all 0.2s;
-    }
+    .contact-item { display: flex; gap: 1rem; align-items: flex-start; padding: 1.3rem 1.5rem; background: var(--bg); border: 2px solid var(--blue-pale); border-radius: 6px; transition: all 0.2s; }
     .contact-item:hover { border-color: var(--blue-light); box-shadow: var(--shadow); }
     .contact-icon { font-size: 1.5rem; }
     .contact-item h4 { font-weight: 700; margin-bottom: 0.3rem; font-size: 0.75rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--grey); }
     .contact-item a, .contact-item p { color: var(--text); text-decoration: none; font-size: 1rem; font-weight: 600; transition: color 0.2s; }
     .contact-item a:hover { color: var(--blue); }
     .contact-form { display: flex; flex-direction: column; gap: 1rem; }
-    .contact-form input,
-    .contact-form textarea,
-    .contact-form select {
-      background: var(--bg);
-      border: 2px solid var(--blue-pale);
-      color: var(--text);
-      padding: 0.9rem 1.2rem;
-      border-radius: 4px;
-      font-family: 'Barlow', sans-serif;
-      font-size: 0.95rem;
-      transition: border-color 0.2s, box-shadow 0.2s;
-      outline: none;
-    }
-    .contact-form input:focus,
-    .contact-form textarea:focus,
-    .contact-form select:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(0,119,182,0.1); }
+    .contact-form input, .contact-form textarea, .contact-form select { background: var(--bg); border: 2px solid var(--blue-pale); color: var(--text); padding: 0.9rem 1.2rem; border-radius: 4px; font-family: 'Barlow', sans-serif; font-size: 0.95rem; transition: border-color 0.2s, box-shadow 0.2s; outline: none; }
+    .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(0,119,182,0.1); }
     .contact-form textarea { min-height: 130px; resize: vertical; }
     .contact-form .btn { border: none; cursor: pointer; width: 100%; text-align: center; font-size: 1rem; }
 
     /* ── FOOTER ── */
-    footer {
-      background: var(--black);
-      padding: 2.5rem 6%;
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 1rem;
-    }
+    footer { background: var(--black); padding: 2.5rem 6%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
     .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 2px; color: white; }
     .footer-logo span { color: var(--orange); }
     footer p { color: rgba(255,255,255,0.4); font-size: 0.85rem; }
 
     /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
@@ -558,7 +250,7 @@
   <div class="hero-shape"></div>
   <div class="hero-inner">
 
-    <!-- Left: Text content -->
+    <!-- Left: Text -->
     <div class="hero-content">
       <div class="hero-tag">Sydney's Cleaning Specialists</div>
       <h1>WE MAKE<br><span class="accent">SURFACES</span><br><span class="accent-orange">SHINE.</span></h1>
@@ -568,46 +260,22 @@
         <a href="tel:0415831088" class="btn btn-outline">📞 0415 831 088</a>
       </div>
       <div class="hero-stats">
-        <div>
-          <div class="stat-num">100%</div>
-          <div class="stat-label">Satisfaction</div>
-        </div>
-        <div>
-          <div class="stat-num">SYD</div>
-          <div class="stat-label">Wide Coverage</div>
-        </div>
-        <div>
-          <div class="stat-num">FREE</div>
-          <div class="stat-label">Quotes</div>
-        </div>
+        <div><div class="stat-num">100%</div><div class="stat-label">Satisfaction</div></div>
+        <div><div class="stat-num">SYD</div><div class="stat-label">Wide Coverage</div></div>
+        <div><div class="stat-num">FREE</div><div class="stat-label">Quotes</div></div>
       </div>
     </div>
 
-    <!-- Right: Photo Carousel -->
+    <!-- Right: Carousel -->
     <div class="hero-carousel-wrap">
       <div class="carousel-drop"></div>
       <div class="hero-carousel">
-
-        <div class="carousel-slide active">
-          <img src="pic01.jpg" style="width:100%;height:100%;object-fit:cover;">
-        </div>
-
-        <div class="carousel-slide">
-          <img src="pic02.jpg" style="width:100%;height:100%;object-fit:cover;">
-        </div>
-
-        <div class="carousel-slide">
-          <img src="pic03.jpg" style="width:100%;height:100%;object-fit:cover;">
-        </div>
-
-        <div class="carousel-slide">
-          <img src="pic04.jpg" style="width:100%;height:100%;object-fit:cover;">
-        </div>
-
+        <div class="carousel-slide active"><img src="pic01.jpg" alt="Apex Cleaning Work"></div>
+        <div class="carousel-slide"><img src="pic02.jpg" alt="Apex Cleaning Work"></div>
+        <div class="carousel-slide"><img src="pic03.jpg" alt="Apex Cleaning Work"></div>
+        <div class="carousel-slide"><img src="pic04.jpg" alt="Apex Cleaning Work"></div>
         <div class="carousel-badge">Apex Cleaning · Sydney</div>
       </div>
-
-      <!-- Dots -->
       <div class="carousel-dots">
         <div class="c-dot active" onclick="goToSlide(0)"></div>
         <div class="c-dot" onclick="goToSlide(1)"></div>
@@ -669,23 +337,12 @@
     <p class="section-sub">Drag the slider left and right to see the difference our work makes. Real results, every time.</p>
   </div>
   <div class="sliders-grid">
+
     <div class="slider-wrap">
       <div class="slider-label">Driveway <span>Pressure Clean</span></div>
-      <div class="comparison" id="slider1">
-        <div class="comp-before">
-          <div class="placeholder">
-            <div class="ph-icon">🟫</div>
-            <div class="ph-text">Before</div>
-            <div class="ph-hint">Replace with your before photo<br>driveway-before.jpg</div>
-          </div>
-        </div>
-        <div class="comp-after">
-          <div class="placeholder">
-            <div class="ph-icon">✨</div>
-            <div class="ph-text">After</div>
-            <div class="ph-hint">Replace with your after photo<br>driveway-after.jpg</div>
-          </div>
-        </div>
+      <div class="comparison">
+        <div class="comp-before"><div class="placeholder"><div class="ph-icon">🟫</div><div class="ph-text">Before</div><div class="ph-hint">driveway-before.jpg</div></div></div>
+        <div class="comp-after"><div class="placeholder"><div class="ph-icon">✨</div><div class="ph-text">After</div><div class="ph-hint">driveway-after.jpg</div></div></div>
         <div class="comp-tag before">Before</div>
         <div class="comp-tag after">After</div>
         <div class="comp-divider"></div>
@@ -693,23 +350,12 @@
       </div>
       <div class="slider-hint">⟵ Drag to compare ⟶</div>
     </div>
+
     <div class="slider-wrap">
       <div class="slider-label">Building Wall <span>Clean</span></div>
-      <div class="comparison" id="slider2">
-        <div class="comp-before">
-          <div class="placeholder">
-            <div class="ph-icon">🧱</div>
-            <div class="ph-text">Before</div>
-            <div class="ph-hint">Replace with your before photo<br>wall-before.jpg</div>
-          </div>
-        </div>
-        <div class="comp-after">
-          <div class="placeholder">
-            <div class="ph-icon">✨</div>
-            <div class="ph-text">After</div>
-            <div class="ph-hint">Replace with your after photo<br>wall-after.jpg</div>
-          </div>
-        </div>
+      <div class="comparison">
+        <div class="comp-before"><div class="placeholder"><div class="ph-icon">🧱</div><div class="ph-text">Before</div><div class="ph-hint">wall-before.jpg</div></div></div>
+        <div class="comp-after"><div class="placeholder"><div class="ph-icon">✨</div><div class="ph-text">After</div><div class="ph-hint">wall-after.jpg</div></div></div>
         <div class="comp-tag before">Before</div>
         <div class="comp-tag after">After</div>
         <div class="comp-divider"></div>
@@ -717,23 +363,12 @@
       </div>
       <div class="slider-hint">⟵ Drag to compare ⟶</div>
     </div>
+
     <div class="slider-wrap">
       <div class="slider-label">Driveway <span>Sealing & Coating</span></div>
-      <div class="comparison" id="slider3">
-        <div class="comp-before">
-          <div class="placeholder">
-            <div class="ph-icon">🪨</div>
-            <div class="ph-text">Before</div>
-            <div class="ph-hint">Replace with your before photo<br>sealing-before.jpg</div>
-          </div>
-        </div>
-        <div class="comp-after">
-          <div class="placeholder">
-            <div class="ph-icon">✨</div>
-            <div class="ph-text">After</div>
-            <div class="ph-hint">Replace with your after photo<br>sealing-after.jpg</div>
-          </div>
-        </div>
+      <div class="comparison">
+        <div class="comp-before"><div class="placeholder"><div class="ph-icon">🪨</div><div class="ph-text">Before</div><div class="ph-hint">sealing-before.jpg</div></div></div>
+        <div class="comp-after"><div class="placeholder"><div class="ph-icon">✨</div><div class="ph-text">After</div><div class="ph-hint">sealing-after.jpg</div></div></div>
         <div class="comp-tag before">Before</div>
         <div class="comp-tag after">After</div>
         <div class="comp-divider"></div>
@@ -741,6 +376,7 @@
       </div>
       <div class="slider-hint">⟵ Drag to compare ⟶</div>
     </div>
+
   </div>
 </section>
 
@@ -750,34 +386,10 @@
   <div class="section-title">THE APEX<br>DIFFERENCE</div>
   <div class="why-grid">
     <div class="why-items">
-      <div class="why-item">
-        <div class="why-num">01</div>
-        <div>
-          <h4>Professional Equipment</h4>
-          <p>We use industrial-grade pressure washers and premium coatings — not consumer hardware.</p>
-        </div>
-      </div>
-      <div class="why-item">
-        <div class="why-num">02</div>
-        <div>
-          <h4>Sydney-Based & Local</h4>
-          <p>We're local — fast response times and no travel fees for Sydney metro areas.</p>
-        </div>
-      </div>
-      <div class="why-item">
-        <div class="why-num">03</div>
-        <div>
-          <h4>Free Quotes, No Obligation</h4>
-          <p>Contact us for a transparent, itemised quote with no hidden costs or surprises.</p>
-        </div>
-      </div>
-      <div class="why-item">
-        <div class="why-num">04</div>
-        <div>
-          <h4>Fully Insured</h4>
-          <p>All work is fully insured. Your property is in safe hands from start to finish.</p>
-        </div>
-      </div>
+      <div class="why-item"><div class="why-num">01</div><div><h4>Professional Equipment</h4><p>We use industrial-grade pressure washers and premium coatings — not consumer hardware.</p></div></div>
+      <div class="why-item"><div class="why-num">02</div><div><h4>Sydney-Based & Local</h4><p>We're local — fast response times and no travel fees for Sydney metro areas.</p></div></div>
+      <div class="why-item"><div class="why-num">03</div><div><h4>Free Quotes, No Obligation</h4><p>Contact us for a transparent, itemised quote with no hidden costs or surprises.</p></div></div>
+      <div class="why-item"><div class="why-num">04</div><div><h4>Fully Insured</h4><p>All work is fully insured. Your property is in safe hands from start to finish.</p></div></div>
     </div>
     <div class="why-visual">
       <span class="big-icon">⚡</span>
@@ -794,35 +406,10 @@
   <div class="section-title">FREE QUOTE &<br>ENQUIRIES</div>
   <div class="contact-inner">
     <div class="contact-info">
-      <div class="contact-item">
-        <div class="contact-icon">📞</div>
-        <div>
-          <h4>Phone</h4>
-          <a href="tel:0415831088">0415 831 088</a><br>
-          <a href="tel:0466366800">0466 366 800</a>
-        </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">✉️</div>
-        <div>
-          <h4>Email</h4>
-          <a href="mailto:apexvansau@gmail.com">apexvansau@gmail.com</a>
-        </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">📍</div>
-        <div>
-          <h4>Location</h4>
-          <p>Sydney, NSW & Surrounds</p>
-        </div>
-      </div>
-      <div class="contact-item">
-        <div class="contact-icon">🕐</div>
-        <div>
-          <h4>Hours</h4>
-          <p>Mon–Sat: 7am – 6pm</p>
-        </div>
-      </div>
+      <div class="contact-item"><div class="contact-icon">📞</div><div><h4>Phone</h4><a href="tel:0415831088">0415 831 088</a><br><a href="tel:0466366800">0466 366 800</a></div></div>
+      <div class="contact-item"><div class="contact-icon">✉️</div><div><h4>Email</h4><a href="mailto:apexvansau@gmail.com">apexvansau@gmail.com</a></div></div>
+      <div class="contact-item"><div class="contact-icon">📍</div><div><h4>Location</h4><p>Sydney, NSW & Surrounds</p></div></div>
+      <div class="contact-item"><div class="contact-icon">🕐</div><div><h4>Hours</h4><p>Mon–Sat: 7am – 6pm</p></div></div>
     </div>
     <form class="contact-form" onsubmit="handleSubmit(event)">
       <input type="text" placeholder="Your Name" required />
@@ -850,6 +437,7 @@
 </footer>
 
 <script>
+  // ── Contact Form ──
   function handleSubmit(e) {
     e.preventDefault();
     const btn = e.target.querySelector('button');
@@ -862,7 +450,7 @@
     }, 3000);
   }
 
-  // ── Hero Carousel ──
+  // ── Hero Carousel — auto-slides every 1.5 seconds ──
   let currentSlide = 0;
   const slides = document.querySelectorAll('.carousel-slide');
   const dots = document.querySelectorAll('.c-dot');
@@ -875,12 +463,12 @@
     dots[currentSlide].classList.add('active');
   }
 
-  // Auto-slide every 3 seconds
   setInterval(() => {
     goToSlide((currentSlide + 1) % slides.length);
-  }, 3000);
+  }, 1500);
 
-
+  // ── Before/After Sliders ──
+  document.querySelectorAll('.comparison').forEach(slider => {
     const after = slider.querySelector('.comp-after');
     const divider = slider.querySelector('.comp-divider');
     const handle = slider.querySelector('.comp-handle');
@@ -890,18 +478,17 @@
       const rect = slider.getBoundingClientRect();
       let pct = ((x - rect.left) / rect.width) * 100;
       pct = Math.max(2, Math.min(98, pct));
-      const right = 100 - pct;
-      after.style.clipPath = `inset(0 ${right}% 0 0)`;
+      after.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
       divider.style.left = pct + '%';
       handle.style.left = pct + '%';
     }
 
     slider.addEventListener('mousedown', e => { dragging = true; setPosition(e.clientX); });
     window.addEventListener('mousemove', e => { if (dragging) setPosition(e.clientX); });
-    window.addEventListener('mouseup', () => dragging = false);
+    window.addEventListener('mouseup', () => { dragging = false; });
     slider.addEventListener('touchstart', e => { dragging = true; setPosition(e.touches[0].clientX); }, { passive: true });
     window.addEventListener('touchmove', e => { if (dragging) setPosition(e.touches[0].clientX); }, { passive: true });
-    window.addEventListener('touchend', () => dragging = false);
+    window.addEventListener('touchend', () => { dragging = false; });
   });
 </script>
 
