@@ -430,7 +430,7 @@
       <div class="contact-item"><div class="contact-icon">📍</div><div><h4>Location</h4><p>Sydney, NSW & Surrounds</p></div></div>
       <div class="contact-item"><div class="contact-icon">🕐</div><div><h4>Hours</h4><p>Mon–Sat: 7am – 6pm</p></div></div>
     </div>
-    <form class="contact-form" onsubmit="handleSubmit(event)">
+    <form class="contact-form" action="https://formspree.io/f/mbdvkpbr" method="POST">
       <input type="text" placeholder="Your Name" required />
       <input type="tel" placeholder="Your Phone Number" required />
       <input type="email" placeholder="Your Email" />
@@ -456,18 +456,6 @@
 </footer>
 
 <script>
-  // ── Contact Form ──
-  function handleSubmit(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('button');
-    btn.textContent = '✅ Enquiry Sent!';
-    btn.style.background = '#22c55e';
-    setTimeout(() => {
-      btn.textContent = 'Send Enquiry →';
-      btn.style.background = '';
-      e.target.reset();
-    }, 3000);
-  }
 
 // ── Carousel function — works for any carousel ──
 function initCarousel(wrap) {
