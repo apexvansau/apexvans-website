@@ -222,13 +222,15 @@
     @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 
     /* ── RESPONSIVE ── */
+    .mobile-carousel-section { display: block; padding: 3rem 6% 2rem; }
     @media (max-width: 900px) {
       nav ul { display: none; }
       .why-grid, .contact-inner { grid-template-columns: 1fr; }
       .hero-inner { flex-direction: column; gap: 2rem; }
-      .hero-carousel-wrap { display: none; }
+      .hero-carousel-wrap { display: none !important; }
       .hero-shape { display: none; }
       .hero-stats { gap: 1.5rem; }
+      .mobile-carousel-section { display: block; padding: 2rem 6%; }
       footer { flex-direction: column; text-align: center; }
     }
   </style>
@@ -290,6 +292,19 @@
   </div>
 </section>
 
+
+<!-- MOBILE CAROUSEL -->
+<section class="mobile-carousel-section">
+  <div class="section-tag">Our Work</div>
+  <div class="section-title">OUR BEST JOBS</div>
+  <div class="hero-carousel" style="width:100%;height:260px;border-radius:12px;box-shadow:var(--shadow);">
+    <div class="carousel-slide active"><img src="pic01.jpg" alt="Apex Cleaning Work"></div>
+    <div class="carousel-slide"><img src="pic02.jpg" alt="Apex Cleaning Work"></div>
+    <div class="carousel-slide"><img src="pic03.jpg" alt="Apex Cleaning Work"></div>
+    <div class="carousel-slide"><img src="pic04.jpg" alt="Apex Cleaning Work"></div>
+  </div>
+</section>
+  
 <!-- SERVICES -->
 <section class="services" id="services">
   <div class="section-tag">What We Do</div>
