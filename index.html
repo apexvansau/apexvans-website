@@ -282,10 +282,10 @@
         <div class="carousel-badge">Apex Cleaning · Sydney</div>
       </div>
       <div class="carousel-dots">
-        <div class="c-dot active" onclick="goToSlide(0)"></div>
-        <div class="c-dot" onclick="goToSlide(1)"></div>
-        <div class="c-dot" onclick="goToSlide(2)"></div>
-        <div class="c-dot" onclick="goToSlide(3)"></div>
+        <div class="c-dot active"></div>
+        <div class="c-dot"></div>
+        <div class="c-dot"></div>
+        <div class="c-dot"></div>
       </div>
     </div>
 
@@ -470,22 +470,29 @@
     }, 3000);
   }
 
-  // ── Hero Carousel — auto-slides every 1.5 seconds ──
-  let currentSlide = 0;
-  const slides = document.querySelectorAll('.carousel-slide');
-  const dots = document.querySelectorAll('.c-dot');
+// ── Carousel function — works for any carousel ──
+function initCarousel(wrap) {
+  const slides = wrap.querySelectorAll('.carousel-slide');
+  const dots = wrap.querySelectorAll('.c-dot');
+  let current = 0;
 
   function goToSlide(n) {
-    slides[currentSlide].classList.remove('active');
-    dots[currentSlide].classList.remove('active');
-    currentSlide = n;
-    slides[currentSlide].classList.add('active');
-    dots[currentSlide].classList.add('active');
+    slides[current].classList.remove('active');
+    if (dots[current]) dots[current].classList.remove('active');
+    current = n;
+    slides[current].classList.add('active');
+    if (dots[current]) dots[current].classList.add('active');
   }
 
   setInterval(() => {
-    goToSlide((currentSlide + 1) % slides.length);
+    goToSlide((current + 1) % slides.length);
   }, 1500);
+}
+
+// Initialise all carousels on the page
+document.querySelectorAll('.hero-carousel').forEach(carousel => {
+  initCarousel(carousel);
+});
 
   // ── Before/After Sliders ──
   document.querySelectorAll('.comparison').forEach(slider => {
