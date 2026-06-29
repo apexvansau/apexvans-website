@@ -431,9 +431,9 @@
       <div class="contact-item"><div class="contact-icon">🕐</div><div><h4>Hours</h4><p>Mon–Sat: 7am – 6pm</p></div></div>
     </div>
     <form class="contact-form" action="https://formspree.io/f/mbdvkpbr" method="POST">
-      <input type="text" placeholder="Your Name" required />
-      <input type="tel" placeholder="Your Phone Number" required />
-      <input type="email" placeholder="Your Email" />
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="tel" name="phone" placeholder="Your Phone Number" required />
+      <input type="email" name="email" placeholder="Your Email" />
       <select>
         <option value="" disabled selected>Select a Service</option>
         <option>High Pressure Cleaning — Driveway</option>
@@ -442,7 +442,7 @@
         <option>Protective Coating & Sealing</option>
         <option>Multiple Services</option>
       </select>
-      <textarea placeholder="Tell us about your job — size, location, any details..."></textarea>
+      <textarea name="message" placeholder="Tell us about your job — size, location, any details..."></textarea>
       <button type="submit" class="btn btn-primary">Send Enquiry →</button>
     </form>
   </div>
