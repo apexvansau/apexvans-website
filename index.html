@@ -232,6 +232,17 @@
       .hero-stats { gap: 1.5rem; }
       .mobile-carousel-section { display: block; padding: 2rem 6%; }
       footer { flex-direction: column; text-align: center; }
+      .footer-social { display: flex; gap: 1rem; align-items: center; }
+      .social-btn {
+          display: flex; align-items: center; gap: 0.5rem;
+          background: rgba(255,255,255,0.1);
+          border: 1px solid rgba(255,255,255,0.2);
+          color: white; text-decoration: none;
+          padding: 0.5rem 1rem; border-radius: 4px;
+          font-size: 0.85rem; font-weight: 600;
+          transition: all 0.2s;
+          }
+    .social-btn:hover { background: rgba(255,255,255,0.2); }
     }
   </style>
 </head>
@@ -454,9 +465,18 @@
 
 <!-- FOOTER -->
 <footer>
-  <img src="logo.svg" alt="Apex Vans" style="height:60px;filter:brightness(0) invert(1);">
+  <a href="#"><img src="logo.svg" alt="Apex Vans" style="height:60px;filter:brightness(0) invert(1);"></a>
   <p>© 2026 Apex Vans Cleaning Solutions · Sydney, NSW</p>
-  <p>apexvans.com.au</p>
+  <div class="footer-social">
+    <a href="https://www.facebook.com/profile.php?id=61590957257668" target="_blank" class="social-btn">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      Facebook
+    </a>
+    <a href="#" class="social-btn" style="opacity:0.5;cursor:not-allowed;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="white" stroke="none"/></svg>
+      Instagram
+    </a>
+  </div>
 </footer>
 
 <script>
