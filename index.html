@@ -430,8 +430,11 @@
       <div class="contact-item"><div class="contact-icon">📍</div><div><h4>Location</h4><p>Sydney, NSW & Surrounds</p></div></div>
       <div class="contact-item"><div class="contact-icon">🕐</div><div><h4>Hours</h4><p>Mon–Sat: 7am – 6pm</p></div></div>
     </div>
-    <form class="contact-form" action="https://formspree.io/f/mbdvkpbr" method="POST">
+    <form class="contact-form" id="enquiry-form">
+   <!--
+      <form class="contact-form" action="https://formspree.io/f/mbdvkpbr" method="POST">
       <input type="hidden" name="_next" value="https://apexvans.com.au/thankyou.html"/>
+      -->
       <input type="text" name="name" placeholder="Your Name" required />
       <input type="tel" name="phone" placeholder="Your Phone Number" required />
       <input type="email" name="email" placeholder="Your Email" />
@@ -505,6 +508,29 @@ document.querySelectorAll('.hero-carousel').forEach(carousel => {
     window.addEventListener('touchmove', e => { if (dragging) setPosition(e.touches[0].clientX); }, { passive: true });
     window.addEventListener('touchend', () => { dragging = false; });
   });
+
+// ── Contact Form with Formspree ──
+document.getElementById('enquiry-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('button');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  const response = await fetch('https://formspree.io/f/mbdvkpbr', {
+    method: 'POST',
+    body: new FormData(form),
+    headers: { 'Accept': 'application/json' }
+  });
+
+  if (response.ok) {
+    window.location.href = '/thankyou.html';
+  } else {
+    btn.textContent = '❌ Error — try again';
+    btn.disabled = false;
+  }
+});
+  
 </script>
 
 </body>
