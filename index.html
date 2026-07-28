@@ -221,8 +221,43 @@
     /* ── ANIMATIONS ── */
     @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
 
+    /* ── GALLERY ── */
+    .gallery { background: var(--white); }
+    .masonry-grid {
+      columns: 3;
+      column-gap: 1rem;
+      margin-top: 3rem;
+    }
+    .masonry-item {
+      break-inside: avoid;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+    .masonry-item img {
+      width: 100%;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .masonry-item:hover img {
+      transform: scale(1.05);
+    }
+    .masonry-item::after {
+      content: '🔍';
+      position: absolute; inset: 0;
+      background: rgba(0,119,182,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .masonry-item:hover::after { opacity: 1; }
+
     /* ── RESPONSIVE ── */
     .mobile-carousel-section { display: none; background: var(--white);}
+    .masonry-grid { columns: 2; }
     @media (max-width: 900px) {
       nav ul { display: none; }
       .why-grid, .contact-inner { grid-template-columns: 1fr; }
@@ -254,6 +289,7 @@
   <ul>
     <li><a href="#services">Services</a></li>
     <li><a href="#results">Results</a></li>
+    <li><a href="#gallery">Gallery</a></li>
     <li><a href="#why">Why Us</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="tel:0415831088" class="nav-cta" title="0415 831 088">📞 0415 831 088</a></li>
@@ -414,6 +450,25 @@
   </div>
 </section>
 
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="section-tag">Portfolio</div>
+  <div class="section-title">SEE THE RESULTS</div>
+  <p class="section-sub">Real jobs, real results. High pressure cleaning and protective coating across Sydney.</p>
+  <div class="masonry-grid">
+    <div class="masonry-item"><img src="After01.jpeg" alt="Apex Cleaning Result"></div>
+    <div class="masonry-item"><img src="After02.jpeg" alt="Apex Cleaning Result"></div>
+    <div class="masonry-item"><img src="After03.jpeg" alt="Apex Cleaning Result"></div>
+    <div class="masonry-item"><img src="After04.jpeg" alt="Apex Cleaning Result"></div>
+    <div class="masonry-item"><img src="After05.jpeg" alt="Apex Cleaning Result"></div>
+    <div class="masonry-item"><img src="After09.jpeg" alt="Apex Cleaning Result"></div>
+    <div class="masonry-item"><img src="After10.jpeg" alt="Apex Cleaning Result"></div>
+    <div class="masonry-item"><img src="After11.jpeg" alt="Apex Cleaning Result"></div>
+    <div class="masonry-item"><img src="After12.jpeg" alt="Apex Cleaning Result"></div>
+    <div class="masonry-item"><img src="After13.jpeg" alt="Apex Cleaning Result"></div>
+  </div>
+</section>
+  
 <!-- WHY US -->
 <section class="why" id="why">
   <div class="section-tag">Why Choose Us</div>
