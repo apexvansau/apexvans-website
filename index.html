@@ -265,6 +265,41 @@
     }
     .masonry-item:hover::after { opacity: 1; }
 
+    /* ── COVERFLOW GALLERY ── */
+.coverflow-wrap { margin-top: 3rem; }
+.coverflow-track {
+  position: relative; height: 380px;
+  display: flex; align-items: center; justify-content: center;
+  perspective: 1000px; overflow: hidden;
+}
+.cf-slide {
+  position: absolute; width: 320px; height: 340px;
+  border-radius: 12px; overflow: hidden;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
+  box-shadow: var(--shadow-lg);
+}
+.cf-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.coverflow-controls {
+  display: flex; align-items: center; justify-content: center;
+  gap: 1.5rem; margin-top: 1.5rem;
+}
+.cf-btn {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--blue); color: white; border: none;
+  font-size: 1.5rem; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s; box-shadow: var(--shadow);
+}
+.cf-btn:hover { background: var(--blue-dark); transform: scale(1.05); }
+.cf-dots { display: flex; gap: 6px; align-items: center; }
+.cf-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--blue-pale); border: 2px solid var(--blue-light);
+  cursor: pointer; transition: all 0.3s;
+}
+.cf-dot.active { background: var(--blue); width: 22px; border-radius: 4px; }
+
     /* ── RESPONSIVE ── */
     .mobile-carousel-section { display: none; background: var(--white);}
     .masonry-grid { columns: 2; }
@@ -465,6 +500,23 @@
   <div class="section-tag">Portfolio</div>
   <div class="section-title">SEE THE RESULTS</div>
   <p class="section-sub">Real jobs, real results.</p>
+
+  <div class="coverflow-wrap">
+    <div class="coverflow-track" id="cfTrack"></div>
+    <div class="coverflow-controls">
+      <button class="cf-btn" id="cfPrev">&#8249;</button>
+      <div class="cf-dots" id="cfDots"></div>
+      <button class="cf-btn" id="cfNext">&#8250;</button>
+    </div>
+  </div>
+</section>
+
+  <!-- GALLERY -->
+  <!--
+<section class="gallery" id="gallery">
+  <div class="section-tag">Portfolio</div>
+  <div class="section-title">SEE THE RESULTS</div>
+  <p class="section-sub">Real jobs, real results.</p>
   <div class="masonry-grid">
     <div class="masonry-item"><img src="After01.jpeg" alt="Apex Cleaning Result"></div>
     <div class="masonry-item"><img src="After02.jpeg" alt="Apex Cleaning Result"></div>
@@ -478,6 +530,7 @@
     <div class="masonry-item"><img src="After13.jpeg" alt="Apex Cleaning Result"></div>
   </div>
 </section>
+  -->
   
 <!-- WHY US -->
 <section class="why" id="why">
@@ -619,6 +672,59 @@ document.getElementById('enquiry-form').addEventListener('submit', async functio
     btn.disabled = false;
   }
 });
+
+// ── Coverflow Gallery ──
+(function() {
+  const imgs = ['After01.jpeg','After02.jpeg','After03.jpeg','After04.jpeg','After05.jpeg','After09.jpeg','After10.jpeg','After11.jpeg','After12.jpeg','After13.jpeg'];
+  const track = document.getElementById('cfTrack');
+  const dotsEl = document.getElementById('cfDots');
+  let current = 0;
+  let timer;
+
+  const slides = imgs.map((src, i) => {
+    const el = document.createElement('div');
+    el.className = 'cf-slide';
+    el.innerHTML = `<img src="${src}" alt="Apex Cleaning Result">`;
+    el.addEventListener('click', () => { current = i; render(); resetTimer(); });
+    track.appendChild(el);
+    return el;
+  });
+
+  const dots = imgs.map((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'cf-dot' + (i === 0 ? ' active' : '');
+    d.addEventListener('click', () => { current = i; render(); resetTimer(); });
+    dotsEl.appendChild(d);
+    return d;
+  });
+
+  function render() {
+    slides.forEach((s, i) => {
+      const offset = i - current;
+      const abs = Math.abs(offset);
+      if (abs > 2) { s.style.opacity = '0'; s.style.pointerEvents = 'none'; return; }
+      s.style.opacity = abs === 0 ? '1' : abs === 1 ? '0.7' : '0.4';
+      s.style.pointerEvents = 'auto';
+      s.style.zIndex = 10 - abs;
+      const tx = offset * 260;
+      const ry = offset === 0 ? 0 : offset > 0 ? -45 : 45;
+      const scale = abs === 0 ? 1 : abs === 1 ? 0.78 : 0.62;
+      s.style.transform = `translateX(${tx}px) rotateY(${ry}deg) scale(${scale})`;
+      s.style.filter = abs === 0 ? 'none' : `brightness(${abs === 1 ? 0.7 : 0.45})`;
+    });
+    dots.forEach((d, i) => {
+      d.className = 'cf-dot' + (i === current ? ' active' : '');
+    });
+  }
+
+  document.getElementById('cfPrev').addEventListener('click', () => { current = (current - 1 + imgs.length) % imgs.length; render(); resetTimer(); });
+  document.getElementById('cfNext').addEventListener('click', () => { current = (current + 1) % imgs.length; render(); resetTimer(); });
+
+  function resetTimer() { clearInterval(timer); timer = setInterval(() => { current = (current + 1) % imgs.length; render(); }, 3000); }
+
+  render();
+  resetTimer();
+})();
   
 </script>
 
